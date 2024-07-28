@@ -1,0 +1,45 @@
+{
+    "coord": {
+        "lon": -105.1627,
+        "lat": 20.7522
+    },
+    "weather": [
+        {
+            "id": 803,
+            "main": "Clouds",
+            "description": "broken clouds",
+            "icon": "04n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 302.82,
+        "feels_like": 309.56,
+        "temp_min": 302.82,
+        "temp_max": 302.82,
+        "pressure": 1014,
+        "humidity": 79,
+        "sea_level": 1014,
+        "grnd_level": 978
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 3.09,
+        "deg": 190
+    },
+    "clouds": {
+        "all": 75
+    },
+    "dt": 1721104832,
+    "sys": {
+        "type": 1,
+        "id": 7156,
+        "country": "MX",
+        "sunrise": 1721046506,
+        "sunset": 1721094270
+    },
+    "timezone": -21600,
+    "id": 4004293,
+    "name": "Ixtapa",
+    "cod": 200
+}

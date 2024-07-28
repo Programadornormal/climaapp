@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App de Clima</title>
+    <script>
+        // Código JavaScript aquí
+        function obtenerUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarUbicacion, manejarError);
+            } else {
+                alert("La geolocalización no es soportada por este navegador.");
+            }
+        }
+
+        function mostrarUbicacion(position) {
+            const latitud = position.coords.latitude;
+            const longitud = position.coords.longitude;
+            console.log("Latitud: " + latitud + " Longitud: " + longitud);
+
+            obtenerClima(latitud, longitud);
+        }
+
+        function manejarError(error) {
+            switch (error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("Usuario negó la solicitud de geolocalización.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("La información de ubicación no está disponible.");
+                    break;
+                case error.TIMEOUT:
+                    alert("La solicitud para obtener la ubicación del usuario ha expirado.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("Ocurrió un error desconocido.");
+                    break;
+            }
+        }
+
+        async function obtenerClima(latitud, longitud) {
+            const response = await fetch(`http://localhost:5000/clima?lat=${latitud}&lon=${longitud}`);
+            const data = await response.json();
+            console.log(data);
+            
+        } 
+
+        window.onload = obtenerUbicacion;
+    </script>
+</head>
+<body>
+    <div id="clima"></div>
+</body>
+</html>
